@@ -37,5 +37,23 @@ namespace App.UI
             MessageBox.Show("🎉🎉");
 
         }
+
+        private void buttonSaveSP_Click(object sender, EventArgs e)
+        {
+            var model = new Customer
+            {
+                FirstName = textBoxFirtsName.Text,
+                LastName = textBoxLastName.Text,
+                Email = textBoxEmail.Text,
+                Address = textBoxAddress.Text,
+                IsActive = checkBoxIsactive.Checked,
+                DOB = dateTimePickerDOB.Value,
+                NationalCode = textBoxNationalCode.Text,
+            };
+
+            var service = new CustomerService();
+            service.CreateSP(model);
+            MessageBox.Show("🎉🎉");
+        }
     }
 }

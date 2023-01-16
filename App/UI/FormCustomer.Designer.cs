@@ -42,6 +42,7 @@
             this.dateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
             this.checkBoxIsactive = new System.Windows.Forms.CheckBox();
+            this.buttonSaveSP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -143,7 +144,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(319, 344);
+            this.buttonSave.Location = new System.Drawing.Point(319, 333);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 13;
@@ -161,11 +162,22 @@
             this.checkBoxIsactive.Text = "Is Active";
             this.checkBoxIsactive.UseVisualStyleBackColor = true;
             // 
+            // buttonSaveSP
+            // 
+            this.buttonSaveSP.Location = new System.Drawing.Point(319, 362);
+            this.buttonSaveSP.Name = "buttonSaveSP";
+            this.buttonSaveSP.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveSP.TabIndex = 15;
+            this.buttonSaveSP.Text = "Save SP";
+            this.buttonSaveSP.UseVisualStyleBackColor = true;
+            this.buttonSaveSP.Click += new System.EventHandler(this.buttonSaveSP_Click);
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 393);
+            this.Controls.Add(this.buttonSaveSP);
             this.Controls.Add(this.checkBoxIsactive);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dateTimePickerDOB);
@@ -203,5 +215,6 @@
         private DateTimePicker dateTimePickerDOB;
         private Button buttonSave;
         private CheckBox checkBoxIsactive;
+        private Button buttonSaveSP;
     }
 }
