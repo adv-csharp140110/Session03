@@ -1,0 +1,51 @@
+﻿Database
+	SQL SERVER 2017
+	
+	Database Access
+		ADO.net
+		ORM
+			Entity framework
+				DB First
+				Codefirst
+			dapper (micro framework)
+
+
+	Database 
+		Tabale -> c#: class
+			Name: PascalCase				
+
+			Column -> property
+				Date Type:
+
+
+		Primary Key
+			int -> auto increment
+				Id
+				<table>_Id
+				<table>Id
+
+
+			unique -> national code
+			guid -> 
+			 cluster id
+
+
+		Data type
+				string (c#)
+					char(10)		varchar(10)
+					nchar(10)		nvarchar(10)
+
+
+				numeric (C#)
+					int, biginit, smallint, float
+
+
+				e.x:
+					national code: 
+						char(10)
+
+
+		CRUD - create, read, update, delete
+			 - insert, select, update, delete
+
+
