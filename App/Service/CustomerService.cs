@@ -133,15 +133,15 @@ namespace App.Service
                     Address = reader["Address"].ToString(),
                     NationalCode = reader["NationalCode"].ToString(),
                     DOB = Convert.ToDateTime(reader["DOB"]),
-                    IsActive = Convert.ToBoolean(reader["IsActive"]),
-                });
+                    IsActive = Convert.ToBoolean(reader["IsActive"]),                    
+                }); ;
 
             }
             conn.Close();
             return result;
         }
 
-        internal void Delete(int id)
+        public void Delete(int id)
         {
             var conn = new SqlConnection(connString);
             //var command = new SqlCommand("DELETE [dbo].[Customer] WHERE Id = @Id", conn);
@@ -154,6 +154,58 @@ namespace App.Service
             conn.Open();
             command.ExecuteNonQuery();            
             conn.Close();            
+        }
+
+        public Customer GetById(int Id)
+        {
+            var conn = new SqlConnection(connString);
+
+            var command = new SqlCommand("[dbo].[usp_CustomerSelect]", conn);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("Id", Id);
+            conn.Open();
+
+            var reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                return new Customer
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    FirstName = reader["FirstName"].ToString(),
+                    LastName = reader["LastName"].ToString(),
+                    Email = reader["Email"].ToString(),
+                    Address = reader["Address"].ToString(),
+                    NationalCode = reader["NationalCode"].ToString(),
+                    DOB = Convert.ToDateTime(reader["DOB"]),
+                    IsActive = Convert.ToBoolean(reader["IsActive"]),
+                };
+
+            }
+            conn.Close();
+            return null;
+        }
+
+        internal void Update(Customer model)
+        {
+            var conn = new SqlConnection(connString);
+            var command = new SqlCommand();
+
+            command.CommandText = "[usp_CustomerUpdate]";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("Id", model.Id);
+            command.Parameters.AddWithValue("FirstName", model.FirstName);
+            command.Parameters.AddWithValue("LastName", model.LastName);
+            command.Parameters.AddWithValue("NationalCode", model.NationalCode);
+            command.Parameters.AddWithValue("Email", model.Email);
+            command.Parameters.AddWithValue("DOB", model.DOB);
+            command.Parameters.AddWithValue("IsActive", model.IsActive);
+            command.Parameters.AddWithValue("Address", model.Address);
+            command.Connection = conn;
+            conn.Open();
+            command.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

@@ -14,9 +14,17 @@ namespace App.UI
 {
     public partial class FormCustomer : Form
     {
+        public int? Id { get; }
+        CustomerService service = new CustomerService();
+
         public FormCustomer()
         {
             InitializeComponent();
+        }
+
+        public FormCustomer(int Id) : this()
+        {
+            this.Id = Id;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -32,7 +40,6 @@ namespace App.UI
                 NationalCode= textBoxNationalCode.Text,
             };
 
-            var service = new CustomerService();
             service.Create(model);
             MessageBox.Show("🎉🎉");
 
@@ -50,10 +57,35 @@ namespace App.UI
                 DOB = dateTimePickerDOB.Value,
                 NationalCode = textBoxNationalCode.Text,
             };
-
-            var service = new CustomerService();
-            service.CreateSP(model);
+            if (!Id.HasValue)
+            {
+                service.CreateSP(model);
+            }
+            else
+            {
+                model.Id = Id.Value;
+                service.Update(model);
+                DialogResult= DialogResult.OK;
+                Close();
+            }
+            
             MessageBox.Show("🎉🎉");
+        }
+
+        private void FormCustomer_Load(object sender, EventArgs e)
+        {
+            if (Id.HasValue)
+            {
+                //EDIT
+                var customer = service.GetById(Id.Value);
+                textBoxFirtsName.Text = customer.FirstName;
+                textBoxLastName.Text = customer.LastName;
+                textBoxEmail.Text = customer.Email;
+                textBoxAddress.Text = customer.Address;
+                textBoxNationalCode.Text = customer.NationalCode;
+                checkBoxIsactive.Checked = customer.IsActive;
+                dateTimePickerDOB.Value = customer.DOB;
+            }
         }
     }
 }

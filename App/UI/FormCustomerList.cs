@@ -31,19 +31,29 @@ namespace App.UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.CurrentCell.OwningColumn.Name == "Delete")
+            var id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
+
+            if (dataGridView1.CurrentCell.OwningColumn.Name == "Delete")
             {
-                if(MessageBox.Show("مطمنئ هستید؟", "حذف", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("مطمنئ هستید؟", "حذف", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var service = new CustomerService();
-                    var id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
-                    service.Delete(id);
+                    var service = new CustomerService();                    
                     //dataGridView1.DataSource = service.Read();
+                    service.Delete(id);
                     RefreshData();
                     MessageBox.Show("Success");
                 }
             }
-            
+
+            if (dataGridView1.CurrentCell.OwningColumn.Name == "Edit")
+            {
+                var form = new FormCustomer(id);
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshData();
+                }
+                
+            }
         }
     }
 }

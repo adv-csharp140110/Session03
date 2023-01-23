@@ -110,7 +110,7 @@
             // 
             // DOB
             // 
-            this.DOB.DataPropertyName = "DOB";
+            this.DOB.DataPropertyName = "DOBJalali";
             this.DOB.HeaderText = "تارخ تولد";
             this.DOB.Name = "DOB";
             this.DOB.ReadOnly = true;
