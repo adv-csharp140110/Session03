@@ -110,6 +110,18 @@ namespace App.UI
             dataGridView1.DataSource = (from p in products where p.Price < 1000 select new {ProductName = p.Name, p.Price} ).ToList();
             dataGridView1.DataSource = products.Where(x => x.Price < 1000).Select(x=> new { ProductName = x.Name, x.Price}).ToList();
         }
+
+        /**
+         *  Programming Paradigms
+         *      1. Impretive
+         *      2. Descrpitive
+         *          sql
+         *          Functional Programming
+         *          
+         *              Where=filter,  Select=map, 
+         *              Map-Reduce
+         *          
+         */
     }
 
 
