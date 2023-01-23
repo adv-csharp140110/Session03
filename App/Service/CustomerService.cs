@@ -141,5 +141,19 @@ namespace App.Service
             return result;
         }
 
+        internal void Delete(int id)
+        {
+            var conn = new SqlConnection(connString);
+            //var command = new SqlCommand("DELETE [dbo].[Customer] WHERE Id = @Id", conn);
+
+            var command = new SqlCommand("[dbo].[usp_CustomerDelete]", conn);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            
+
+            command.Parameters.AddWithValue("Id", id);
+            conn.Open();
+            command.ExecuteNonQuery();            
+            conn.Close();            
+        }
     }
 }

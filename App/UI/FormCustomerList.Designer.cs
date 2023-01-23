@@ -37,6 +37,7 @@
             this.NationalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,13 +54,15 @@
             this.Address,
             this.NationalCode,
             this.DOB,
-            this.IsActive});
+            this.IsActive,
+            this.Delete});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1038, 335);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Id
             // 
@@ -117,6 +120,14 @@
             this.IsActive.Name = "IsActive";
             this.IsActive.ReadOnly = true;
             // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "حذف";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "حذف 🗑️";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
             // FormCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -143,5 +154,6 @@
         private DataGridViewTextBoxColumn NationalCode;
         private DataGridViewTextBoxColumn DOB;
         private DataGridViewCheckBoxColumn IsActive;
+        private DataGridViewButtonColumn Delete;
     }
 }
