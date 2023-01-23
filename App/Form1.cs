@@ -20,5 +20,11 @@ namespace App
             var form = new FormCustomerList();
             form.Show();
         }
+
+        private void buttonLinq_Click(object sender, EventArgs e)
+        {
+            var form = new FormLINQ();
+            form.ShowDialog();
+        }
     }
 }

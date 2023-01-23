@@ -30,6 +30,7 @@
         {
             this.buttonCustomer = new System.Windows.Forms.Button();
             this.buttonCustomers = new System.Windows.Forms.Button();
+            this.buttonLinq = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCustomer
@@ -52,11 +53,22 @@
             this.buttonCustomers.UseVisualStyleBackColor = true;
             this.buttonCustomers.Click += new System.EventHandler(this.buttonCustomers_Click);
             // 
+            // buttonLinq
+            // 
+            this.buttonLinq.Location = new System.Drawing.Point(291, 12);
+            this.buttonLinq.Name = "buttonLinq";
+            this.buttonLinq.Size = new System.Drawing.Size(75, 23);
+            this.buttonLinq.TabIndex = 2;
+            this.buttonLinq.Text = "Linq";
+            this.buttonLinq.UseVisualStyleBackColor = true;
+            this.buttonLinq.Click += new System.EventHandler(this.buttonLinq_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 366);
+            this.Controls.Add(this.buttonLinq);
             this.Controls.Add(this.buttonCustomers);
             this.Controls.Add(this.buttonCustomer);
             this.Name = "Form1";
@@ -69,5 +81,6 @@
 
         private Button buttonCustomer;
         private Button buttonCustomers;
+        private Button buttonLinq;
     }
 }

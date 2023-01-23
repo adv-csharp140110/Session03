@@ -203,9 +203,16 @@ namespace App.Service
             command.Parameters.AddWithValue("IsActive", model.IsActive);
             command.Parameters.AddWithValue("Address", model.Address);
             command.Connection = conn;
+
+            //Reflection 
+
             conn.Open();
             command.ExecuteNonQuery();
             conn.Close();
+
+
+            //OBject-Releation Mapping - ORM
+            //Micro Framework: Dapper
         }
     }
 }
