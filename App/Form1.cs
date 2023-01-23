@@ -14,5 +14,11 @@ namespace App
             var form = new FormCustomer();
             form.ShowDialog();
         }
+
+        private void buttonCustomers_Click(object sender, EventArgs e)
+        {
+            var form = new FormCustomerList();
+            form.Show();
+        }
     }
 }

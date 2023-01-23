@@ -113,5 +113,33 @@ namespace App.Service
 
         }
 
+
+        public List<Customer> Read()
+        {
+            var result = new List<Customer>();
+
+            var conn = new SqlConnection(connString);
+            var command = new SqlCommand("SELECT * FROM [dbo].[Customer]", conn);
+            conn.Open();
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                result.Add(new Customer
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    FirstName = reader["FirstName"].ToString(),
+                    LastName = reader["LastName"].ToString(),
+                    Email = reader["Email"].ToString(),
+                    Address = reader["Address"].ToString(),
+                    NationalCode = reader["NationalCode"].ToString(),
+                    DOB = Convert.ToDateTime(reader["DOB"]),
+                    IsActive = Convert.ToBoolean(reader["IsActive"]),
+                });
+
+            }
+            conn.Close();
+            return result;
+        }
+
     }
 }
