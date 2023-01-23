@@ -38,6 +38,7 @@
             this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,8 @@
             this.NationalCode,
             this.DOB,
             this.IsActive,
-            this.Delete});
+            this.Delete,
+            this.Edit});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -128,6 +130,14 @@
             this.Delete.Text = "حذف 🗑️";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "ویرایش";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "ویرایش";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
             // FormCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -155,5 +165,6 @@
         private DataGridViewTextBoxColumn DOB;
         private DataGridViewCheckBoxColumn IsActive;
         private DataGridViewButtonColumn Delete;
+        private DataGridViewButtonColumn Edit;
     }
 }
